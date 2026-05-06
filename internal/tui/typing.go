@@ -4,14 +4,14 @@ import (
 	"fmt"
 	"strings"
 
-	tea "github.com/charmbracelet/bubbletea"
-	"github.com/charmbracelet/lipgloss"
+	tea "charm.land/bubbletea/v2"
+	"charm.land/lipgloss/v2"
 	"github.com/vyrx-dev/toofan/internal/game"
 	"github.com/vyrx-dev/toofan/internal/lang"
 	"github.com/vyrx-dev/toofan/internal/theme"
 )
 
-func (m model) handleTyping(msg tea.KeyMsg) (tea.Model, tea.Cmd) {
+func (m model) handleTyping(msg tea.KeyPressMsg) (tea.Model, tea.Cmd) {
 	switch msg.String() {
 	case "esc":
 		m.game.Reset(m.mode, m.lang, m.difficulty)
@@ -105,7 +105,7 @@ func (m model) handleTyping(msg tea.KeyMsg) (tea.Model, tea.Cmd) {
 		m.game.Backspace()
 
 	default:
-		for _, r := range msg.Runes {
+		for _, r := range msg.Text {
 			m.game.TypeChar(r)
 		}
 	}

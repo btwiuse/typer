@@ -3,8 +3,8 @@ package tui
 import (
 	"strings"
 
-	tea "github.com/charmbracelet/bubbletea"
-	"github.com/charmbracelet/lipgloss"
+	tea "charm.land/bubbletea/v2"
+	"charm.land/lipgloss/v2"
 	"github.com/vyrx-dev/toofan/internal/game"
 	"github.com/vyrx-dev/toofan/internal/lang"
 	"github.com/vyrx-dev/toofan/internal/theme"
@@ -12,7 +12,7 @@ import (
 
 // --- language picker ---
 
-func (m model) handlePicker(msg tea.KeyMsg) (tea.Model, tea.Cmd) {
+func (m model) handlePicker(msg tea.KeyPressMsg) (tea.Model, tea.Cmd) {
 	switch msg.String() {
 	case "up", "k":
 		if m.langCur > 0 {
@@ -39,7 +39,7 @@ func (m model) viewPicker(p theme.Palette) string {
 
 // --- lesson picker ---
 
-func (m model) handleLessonPicker(msg tea.KeyMsg) (tea.Model, tea.Cmd) {
+func (m model) handleLessonPicker(msg tea.KeyPressMsg) (tea.Model, tea.Cmd) {
 	snippets := lang.GetSnippets(m.lang)
 	total := len(snippets) + 1 // +1 for "Random Snippet"
 
@@ -78,7 +78,7 @@ func (m model) viewLessonPicker(p theme.Palette) string {
 
 // --- theme picker ---
 
-func (m model) handleThemePicker(msg tea.KeyMsg) (tea.Model, tea.Cmd) {
+func (m model) handleThemePicker(msg tea.KeyPressMsg) (tea.Model, tea.Cmd) {
 	switch msg.String() {
 	case "up", "k":
 		if m.themeCur > 0 {

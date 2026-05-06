@@ -3,7 +3,7 @@ package tui
 import (
 	"strings"
 
-	"github.com/charmbracelet/lipgloss"
+	"charm.land/lipgloss/v2"
 	"github.com/vyrx-dev/toofan/internal/game"
 	"github.com/vyrx-dev/toofan/internal/theme"
 )

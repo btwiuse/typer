@@ -4,8 +4,8 @@ import (
 	"path/filepath"
 	"time"
 
-	tea "github.com/charmbracelet/bubbletea"
-	"github.com/charmbracelet/lipgloss"
+	tea "charm.land/bubbletea/v2"
+	"charm.land/lipgloss/v2"
 	"github.com/vyrx-dev/toofan/internal/game"
 	"github.com/vyrx-dev/toofan/internal/theme"
 )
@@ -120,7 +120,7 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 			return tick(t)
 		})
 
-	case tea.KeyMsg:
+	case tea.KeyPressMsg:
 		if m.message != "" {
 			m.message = ""
 		}
@@ -248,9 +248,9 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 	return m, nil
 }
 
-func (m model) View() string {
+func (m model) View() tea.View {
 	if m.width == 0 {
-		return ""
+		return tea.NewView("")
 	}
 
 	p := theme.Current
@@ -282,7 +282,10 @@ func (m model) View() string {
 		)
 	}
 
-	return lipgloss.Place(m.width, m.height, lipgloss.Center, lipgloss.Center, body)
+	content := lipgloss.Place(m.width, m.height, lipgloss.Center, lipgloss.Center, body)
+	v := tea.NewView(content)
+	v.AltScreen = true
+	return v
 }
 
 func (m model) save() {

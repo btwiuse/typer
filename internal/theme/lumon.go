@@ -1,6 +1,6 @@
 package theme
 
-import "github.com/charmbracelet/lipgloss"
+import "charm.land/lipgloss/v2"
 
 var Lumon = Palette{
 	Name:       "lumon",

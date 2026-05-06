@@ -9,8 +9,8 @@ import (
 	"strings"
 	"time"
 
-	tea "github.com/charmbracelet/bubbletea"
-	"github.com/charmbracelet/lipgloss"
+	tea "charm.land/bubbletea/v2"
+	"charm.land/lipgloss/v2"
 	"github.com/vyrx-dev/toofan/internal/theme"
 )
 
@@ -162,7 +162,7 @@ func parseResultLine(line string) (testEntry, bool) {
 	return testEntry{Date: date, WPM: wpm, Dur: dur, Acc: acc, Mode: modeStr, Raw: raw, Errors: errors}, true
 }
 
-func (m model) handleProfile(msg tea.KeyMsg) (tea.Model, tea.Cmd) {
+func (m model) handleProfile(msg tea.KeyPressMsg) (tea.Model, tea.Cmd) {
 	m.active = screenTyping
 	return m, nil
 }

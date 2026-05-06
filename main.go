@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"os"
 
-	tea "github.com/charmbracelet/bubbletea"
+	tea "charm.land/bubbletea/v2"
 	"github.com/vyrx-dev/toofan/internal/tui"
 )
 
@@ -20,7 +20,7 @@ func main() {
 		os.Exit(0)
 	}
 
-	p := tea.NewProgram(tui.New(), tea.WithAltScreen())
+	p := tea.NewProgram(tui.New())
 	if _, err := p.Run(); err != nil {
 		fmt.Fprintln(os.Stderr, err)
 		os.Exit(1)

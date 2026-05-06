@@ -1,17 +1,17 @@
 package theme
 
-import "github.com/charmbracelet/lipgloss"
+import "image/color"
 
 // Palette holds all the colors for a theme
 type Palette struct {
 	Name       string
-	Background lipgloss.Color
-	Foreground lipgloss.Color // untyped text, hints
-	Typed      lipgloss.Color // correctly typed
-	Error      lipgloss.Color // mistakes
-	Cursor     lipgloss.Color // current character
-	Accent     lipgloss.Color // highlights, timer, active elements
-	Success    lipgloss.Color // personal best, positive feedback
+	Background color.Color
+	Foreground color.Color // untyped text, hints
+	Typed      color.Color // correctly typed
+	Error      color.Color // mistakes
+	Cursor     color.Color // current character
+	Accent     color.Color // highlights, timer, active elements
+	Success    color.Color // personal best, positive feedback
 }
 
 var All = []Palette{TokyoNight, Gruvbox, Sakura, Monkeytype, Monochrome, Forest, Espresso, Lumon, Mars, Void, Everforest, Chameleon}

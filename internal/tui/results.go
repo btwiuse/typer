@@ -6,13 +6,13 @@ import (
 	"strings"
 	"time"
 
-	tea "github.com/charmbracelet/bubbletea"
-	"github.com/charmbracelet/lipgloss"
+	tea "charm.land/bubbletea/v2"
+	"charm.land/lipgloss/v2"
 	"github.com/vyrx-dev/toofan/internal/game"
 	"github.com/vyrx-dev/toofan/internal/theme"
 )
 
-func (m model) handleResults(msg tea.KeyMsg) (tea.Model, tea.Cmd) {
+func (m model) handleResults(msg tea.KeyPressMsg) (tea.Model, tea.Cmd) {
 	if time.Since(m.finishedAt) < 500*time.Millisecond {
 		return m, nil
 	}
